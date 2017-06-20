@@ -1,33 +1,19 @@
 "use strict";
 
-module.exports = (app, passport) => {
+const mw = require("../middlewares");
 
-    function isLoggedIn(req, res, next) {
-        if (req.isAuthenticated()) return next();
-        else res.redirect("/login");
-    }
+module.exports = (app, passport) => {
 
     app.get("/", (req, res) => {
         res.render("index");
-    })
-
-    app.get("/login", (req, res) => {
-        res.redirect("/auth/twitter");
     });
 
-    app.get("/logout", (req, res) => {
-        req.logout();
-        res.redirect("/");
-    });
+    //calling all of the routes for logging in
+    require("user.js")(app, passport);
 
-    app.get("/auth/twitter", passport.authenticate("twitter"));
-
-    app.get("/auth/twitter/callback", passport.authenticate("twitter", {
-        successRedirect: "/",
-        failureRedirect: "/"
-    }));
-
+    //catches any bad paths
     app.get("*", (req, res) => {
         res.redirect("/");
     });
+    
 };

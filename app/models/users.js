@@ -2,6 +2,7 @@
 
 const mongoose = require("mongoose");
 
+/* user model that stores all info about the user */
 const User = new mongoose.Schema({
     twitter: {
         id: String,
