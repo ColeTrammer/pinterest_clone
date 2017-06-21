@@ -1,7 +1,10 @@
 extends layout.pug
 
 block content
-    h1= image.title
-    img(src=image.url)
-    if owned
-        a(href=`/images/${image._id}/delete`) #[button.btn.btn-danger Delete]
+    .row
+        .col-md-12
+            h2= image.title
+            img.img-rounded.img-responsive(src=image.url onerror="this.onerror=null;this.src='/public/img/noimage.jpg';")
+        .col-md-12
+            if owned
+                a(href=`/images/${image._id}/delete`) #[button.btn.btn-danger Delete]

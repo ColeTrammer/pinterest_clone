@@ -8,6 +8,14 @@ module.exports = {
     showNew: (req, res) => {
         res.render("images/new");
     },
+    //finds all images
+    all: (req, res) => {
+        Image.find({}, (err, images) => {
+            //reverse images so that they are ordered by time placed in db
+            //(recent first)
+            res.render("images", {images: images.reverse()});
+        });
+    },
     //has image id form route declaration
     show: (req, res) => {
         Image.findById(req.params.id, (err, image) => {

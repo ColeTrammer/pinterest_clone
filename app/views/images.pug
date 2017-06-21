@@ -1,7 +1,0 @@
-extends layout.pug
-
-block content
-    each image in images
-        a(href=`/images/${image._id}`) #[img(src=image.url)]
-        p= image
-    p all images

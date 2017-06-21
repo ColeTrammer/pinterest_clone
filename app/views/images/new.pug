@@ -1,11 +1,19 @@
 extends layout.pug
 
+block head
+    script(src="/public/js/images/new.js")
+
 block content
-    form(method="POST" type="application/x-www-form-urlencoded")
-        .form-group
-            label(for="url") Image URL:
-            input.form-control#url(type="url" name="url" required="true" placeholder="https://www.img.com")
-        .form-group
-            label(for="title") Title:
-            input.form-control#title(type="text" placeholder="Title" name="title" required="true")
-        button.btn.btn-primary(type="submit") Create
+    .row
+        .col-md-8
+            form(method="POST" type="application/x-www-form-urlencoded")
+                .form-group
+                    label(for="url") Image URL:
+                    input.form-control#url(type="url" name="url" required="true" placeholder="https://www.img.com")
+                .form-group
+                    label(for="title") Title:
+                    input.form-control#title(type="text" placeholder="Title" name="title" required="true")
+                button.btn.btn-primary(type="submit") Create
+        .col-md-4
+            h1 Preview:
+            #preview

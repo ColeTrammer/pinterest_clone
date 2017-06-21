@@ -1,0 +1,17 @@
+extends layout.pug
+
+block head
+    script(src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js")
+    script(src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js")
+    script(src="/public/js/main.js")
+
+block content
+    .row
+        .col-md-11.img-grid
+            .grid-sizer
+            each image in images
+                .img
+                    h2= image.title
+                    a(href=`/images/${image._id}`) #[img.img-responsive(src=image.url onerror="this.onerror=null;this.src='/public/img/noimage.jpg';")]
+        .col-md-1
+            a(href="/images/new") #[button.btn.btn-primary Create an image]
