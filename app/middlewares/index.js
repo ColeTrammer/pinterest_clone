@@ -1,5 +1,7 @@
 "use strict";
 
+const bodyParser = require("body-parser");
+
 module.exports = {
     /*makes sure a user is logged in by redirect them if their not*/
     forceLogIn: (req, res, next) => {
@@ -7,7 +9,8 @@ module.exports = {
         if (req.isAuthenticated()) {
             return next();
         } else {
-            res.redirect("/");
+            res.redirect("/login");
         }
-    }
+    },
+    parseForm: bodyParser.urlencoded({extended: false})
 };

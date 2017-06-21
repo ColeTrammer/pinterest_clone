@@ -31,6 +31,8 @@ module.exports = (passport) => {
                             id: profile.id,
                             username: profile.username,
                             displayName: profile.displayName
+                        },
+                        images: []
                     });
 
                     newUser.save((err) => {

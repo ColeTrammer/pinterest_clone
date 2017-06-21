@@ -1,0 +1,7 @@
+extends layout.pug
+
+block content
+    h1= image.title
+    img(src=image.url)
+    if owned
+        a(href=`/images/${image._id}/delete`) #[button.btn.btn-danger Delete]

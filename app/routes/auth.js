@@ -28,7 +28,7 @@ module.exports = (app, passport) => {
                     if (redirect[0])
                         res.redirect(redirect[0]);
                     else
-                        res.redirect("");
+                        res.redirect("/myimages");
                 });
             }
         )(req, res, next);
