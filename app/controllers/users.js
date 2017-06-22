@@ -8,7 +8,7 @@ module.exports = {
     //all users
     all: (req, res) => {
         User.find({}, (err, users) => {
-            res.render("users", users: users);
+            res.render("users", {users: users});
         });
     },
     //gets a usesr images using async
