@@ -1,0 +1,6 @@
+extends layout.pug
+
+block content
+    each user in users
+        a(href=`/users/${user.twitter.username}`)
+            h1= user.twitter.username

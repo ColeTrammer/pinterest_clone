@@ -11,6 +11,9 @@ module.exports = (app, passport) => {
         res.redirect("/images");
     });
 
+    //get all users
+    app.get("/users", user.all);
+
     //gets a user's images
     app.get("/users/:id", user.getImages);
 

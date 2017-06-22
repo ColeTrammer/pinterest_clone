@@ -5,7 +5,12 @@ const Image = require("../models/images.js");
 const User = require("../models/users.js");
 
 module.exports = {
-
+    //all users
+    all: (req, res) => {
+        User.find({}, (err, users) => {
+            res.render("users", users: users);
+        });
+    },
     //gets a usesr images using async
     getImages: (req, res) => {
         User.findOne({"twitter.username": req.params.id}, (err, user) => {
